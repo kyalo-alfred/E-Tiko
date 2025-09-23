@@ -1,10 +1,10 @@
 #  E-Tiko – Event Ticketing & Management System
 
 ## Team Members
-189592 - Maina Tiffany Wanjiru
-190513 - Alfred Kyalo Junior 
-167925 - Eniola Faithfulness Fabunmi 
-189923 - Ogwayo Emma Awuor 
+189592 - Maina Tiffany Wanjiru  
+190513 - Alfred Kyalo Junior   
+167925 - Eniola Faithfulness Fabunmi   
+189923 - Ogwayo Emma Awuor   
 
 ## Project Overview
 E-Tiko is a web application developed as part of the **Internet Application Programming** unit.  
