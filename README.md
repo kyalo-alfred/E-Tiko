@@ -20,7 +20,7 @@ It integrates **2-Factor Authentication** and role-based access control for secu
 
 ### Frontend
 - **User Application:** Registration/login with 2FA, event browsing & search, booking forms, payment initiation, confirmation page.
-- **Organizer Dashboard:** Charts & analytics (tickets sold, revenue, attendance), event management, exportable reports.
+- **Organizer Dashboard:** Charts & analytics (tickets sold, time schedule, revenue, attendance), event management, exportable reports.
 
 ### Reports & Security
 - Generate PDF/Excel reports (bookings, revenue, attendance).
