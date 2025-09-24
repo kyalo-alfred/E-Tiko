@@ -5,6 +5,7 @@
 190513 - Alfred Kyalo Junior   
 167925 - Eniola Faithfulness Fabunmi   
 189923 - Ogwayo Emma Awuor   
+188760 - Anton Sumba Mutanda 
 
 ## Project Overview
 E-Tiko is a web application developed as part of the **Internet Application Programming** unit.  
