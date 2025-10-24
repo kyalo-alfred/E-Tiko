@@ -1,0 +1,35 @@
+# Laravel & general
+/vendor/
+/node_modules/
+.env
+.env.* 
+/.idea/
+/.vscode/
+/.vagrant
+Homestead.yaml
+Homestead.json
+
+# Public storage and build artifacts
+/public/hot
+/public/storage
+/storage/*.key
+/storage/debugbar/*
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.phpunit.result.cache
+.php_cs.cache
+
+# Composer & PHP
+/.phpunit.result.cache
+
+# Optional: ignore IDE/editor workspace files
+*.sublime-workspace
+*.sublime-project
