@@ -1,4 +1,4 @@
-package com.devchat.etiko;
+package com.example.etiko.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

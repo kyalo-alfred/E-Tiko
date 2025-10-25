@@ -1,4 +1,4 @@
-package com.devchat.etiko;
+package com.example.etiko;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
