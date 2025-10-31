@@ -1,5 +1,6 @@
 package com.example.etiko.dto;
 
+
 import jakarta.validation.constraints.*;
 import lombok.*;
 import java.time.OffsetDateTime;
@@ -19,7 +20,9 @@ public class CreateEventRequest {
     public static class CategoryDto {
         @NotBlank public String code;
         @NotBlank public String name;
-        @NotNull public Integer price;
+        @NotNull public Integer price;              // regular price
+        public Integer earlyBirdPrice;              // optional
+        public OffsetDateTime earlyBirdUntil;       // optional
         @NotNull public Integer capacity;
         @NotNull public Integer limitPerUser;
     }

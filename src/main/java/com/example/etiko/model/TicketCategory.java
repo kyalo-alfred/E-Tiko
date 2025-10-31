@@ -1,8 +1,10 @@
 package com.example.etiko.model;
 
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import java.time.OffsetDateTime;
 
 @Entity
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
@@ -17,7 +19,13 @@ public class TicketCategory {
     private String name;
 
     @NotNull
-    private Integer price; // in KES
+    private Integer price; // regular price in KES
+
+    // New: optional early bird price in KES
+    private Integer earlyBirdPrice;
+
+    // New: inclusive cutoff (<= this instant uses earlyBirdPrice)
+    private OffsetDateTime earlyBirdUntil;
 
     @NotNull
     private Integer capacity;
