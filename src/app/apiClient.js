@@ -1,11 +1,8 @@
-// src/app/apiClient.ts
+// src/app/apiClient.js
 import axios from "axios";
 
 // Use empty baseURL in dev so MSW can intercept
-const baseURL =
-  import.meta.env.DEV
-    ? ""
-    : import.meta.env.VITE_API_BASE_URL ?? "/api/v1";
+const baseURL = import.meta.env.DEV ? "" : import.meta.env.VITE_API_BASE_URL ?? "/api/v1";
 
 const api = axios.create({
   baseURL,
@@ -21,3 +18,5 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
+

@@ -20,9 +20,7 @@ const Index = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-foreground leading-tight max-w-4xl">
             Discover Events That
             <br />
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Inspire You
-            </span>
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Inspire You</span>
           </h2>
 
           <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
@@ -31,19 +29,12 @@ const Index = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Link to="/auth">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all shadow-elegant text-lg px-8"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all shadow-elegant text-lg px-8">
                 Get Started
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 text-lg px-8 hover:bg-muted/50 transition-all"
-            >
+            <Button size="lg" variant="outline" className="border-2 text-lg px-8 hover:bg-muted/50 transition-all">
               Learn More
             </Button>
           </div>
@@ -55,9 +46,7 @@ const Index = () => {
                 <Sparkles className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Easy Booking</h3>
-              <p className="text-muted-foreground">
-                Book tickets in seconds with our streamlined, user-friendly process
-              </p>
+              <p className="text-muted-foreground">Book tickets in seconds with our streamlined, user-friendly process</p>
             </div>
 
             <div className="p-6 bg-card rounded-xl shadow-card border border-border/50 backdrop-blur-sm hover:shadow-elegant transition-all">
@@ -65,9 +54,7 @@ const Index = () => {
                 <Shield className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Secure Payments</h3>
-              <p className="text-muted-foreground">
-                Protected transactions with 2FA authentication for your peace of mind
-              </p>
+              <p className="text-muted-foreground">Protected transactions with 2FA authentication for your peace of mind</p>
             </div>
 
             <div className="p-6 bg-card rounded-xl shadow-card border border-border/50 backdrop-blur-sm hover:shadow-elegant transition-all">
@@ -75,9 +62,7 @@ const Index = () => {
                 <Calendar className="w-6 h-6 text-accent" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-2">Wide Selection</h3>
-              <p className="text-muted-foreground">
-                Browse thousands of events across multiple categories and locations
-              </p>
+              <p className="text-muted-foreground">Browse thousands of events across multiple categories and locations</p>
             </div>
           </div>
         </div>
@@ -87,3 +72,5 @@ const Index = () => {
 };
 
 export default Index;
+
+

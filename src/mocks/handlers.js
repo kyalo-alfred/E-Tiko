@@ -1,24 +1,9 @@
-// src/mocks/handlers.ts
+// src/mocks/handlers.js
 import { http, HttpResponse } from "msw";
 
-type LoginBody = {
-  username: string;
-  password: string;
-};
-
 const mockEvents = [
-  {
-    id: "1",
-    title: "Tech Conference",
-    startDateTime: "2025-10-10T09:00:00Z",
-    endDateTime: "2025-10-10T17:00:00Z",
-  },
-  {
-    id: "2",
-    title: "Music Festival",
-    startDateTime: "2025-11-01T15:00:00Z",
-    endDateTime: "2025-11-01T23:00:00Z",
-  },
+  { id: "1", title: "Tech Conference", startDateTime: "2025-10-10T09:00:00Z", endDateTime: "2025-10-10T17:00:00Z" },
+  { id: "2", title: "Music Festival", startDateTime: "2025-11-01T15:00:00Z", endDateTime: "2025-11-01T23:00:00Z" },
 ];
 
 export const handlers = [
@@ -28,7 +13,7 @@ export const handlers = [
 
   // Mock login (both possible paths too)
   http.post("/api/login", async ({ request }) => {
-    const body = (await request.json()) as LoginBody;
+    const body = await request.json();
     if (body?.username === "admin" && body?.password === "password") {
       return HttpResponse.json({ token: "fake-jwt-token", role: "admin" });
     }
@@ -36,10 +21,12 @@ export const handlers = [
   }),
 
   http.post("/api/v1/login", async ({ request }) => {
-    const body = (await request.json()) as LoginBody;
+    const body = await request.json();
     if (body?.username === "admin" && body?.password === "password") {
       return HttpResponse.json({ token: "fake-jwt-token", role: "admin" });
     }
     return HttpResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }),
 ];
+
+
