@@ -1,73 +1,89 @@
-# Welcome to your Lovable project
+# E-Tiko – Event Ticketing & Management System
 
-## Project info
+## Team Members
+189592 - Maina Tiffany Wanjiru  
+190513 - Alfred Kyalo Junior  
+167925 - Eniola Faithfulness Fabunmi  
+189923 - Ogwayo Emma Awuor  
+188760 - Anton Sumba Mutanda
 
-**URL**: https://lovable.dev/projects/8463299e-6ac1-412c-97ec-b2710e7f9648
+## Project Overview
+E-Tiko is a web application developed as part of the **Internet Application Programming** unit.  
+The system allows users to browse events, book tickets, pay via M-Pesa, and provides organizers with dashboards, analytics, and reporting tools.  
+It integrates **2-Factor Authentication** and role-based access control for security.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Frontend Application
 
-**Use Lovable**
+This is the frontend React application for E-TIKO built with React and TypeScript.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8463299e-6ac1-412c-97ec-b2710e7f9648) and start prompting.
+### Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+#### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v16 or higher)
+- npm or yarn package manager
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+#### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate to the project directory
+cd etiko-frontend
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+#### Available Scripts
 
-**Use GitHub Codespaces**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build for development
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+#### Technologies Used
 
-## What technologies are used for this project?
+- **Vite** - Fast build tool and development server
+- **React** - User interface library
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Beautiful and accessible UI components
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Responsibilities
 
-## How can I deploy this project?
+### Backend
+- **Event & Ticket Management (Java Spring Boot):** Event CRUD, ticket categories (VIP, Regular, Early Bird), inventory management, booking APIs.
+- **Payments & M-Pesa Integration (PHP):** M-Pesa API integration, secure callbacks, transaction records, ticket confirmation.
 
-Simply open [Lovable](https://lovable.dev/projects/8463299e-6ac1-412c-97ec-b2710e7f9648) and click on Share -> Publish.
+### Frontend
+- **User Application:** Registration/login with 2FA, event browsing & search, booking forms, payment initiation, confirmation page.
+- **Organizer Dashboard:** Charts & analytics (tickets sold, time schedule, revenue, attendance), event management, exportable reports.
 
-## Can I connect a custom domain to my Lovable project?
+### Reports & Security
+- Generate PDF/Excel reports (bookings, revenue, attendance).
+- Role-based access (organizer vs. attendee).
+- 2FA and secure password reset with tokens.
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+
+This project is proprietary software owned by E-TIKO.
