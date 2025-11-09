@@ -1,40 +1,65 @@
 <?php
-class User {
-	public int $user_id;
-	public int $role_id;
-	public string $full_name;
-	public string $email;
-	public ?string $phone;
-	public string $password_hash;
-	public bool $two_fa_enabled;
-	public string $created_at;
 
-	public static function findByEmail(string $email): ?array {
-		$db = Database::getConnection();
-		$stmt = $db->prepare('SELECT * FROM Users WHERE email = ? LIMIT 1');
-		$stmt->execute([$email]);
-		$row = $stmt->fetch();
-		return $row ?: null;
-	}
+namespace App\Models;
 
-	public static function create(string $fullName, string $email, ?string $phone, string $password, int $roleId = 2): int {
-		$db = Database::getConnection();
-		$hash = password_hash($password, PASSWORD_BCRYPT);
-		$stmt = $db->prepare('INSERT INTO Users (role_id, full_name, email, phone, password_hash) VALUES (?, ?, ?, ?, ?)');
-		$stmt->execute([$roleId, $fullName, $email, $phone, $hash]);
-		return (int)$db->lastInsertId();
-	}
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-	public static function verifyPassword(string $password, string $hash): bool {
-		return password_verify($password, $hash);
-	}
+class User extends Authenticatable
+{
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
 
-	public static function all(int $limit = 100): array {
-		$db = Database::getConnection();
-		$stmt = $db->prepare('SELECT user_id, full_name, email, phone, role_id, two_fa_enabled, created_at FROM Users ORDER BY user_id DESC LIMIT ?');
-		$stmt->bindValue(1, $limit, PDO::PARAM_INT);
-		$stmt->execute();
-		return $stmt->fetchAll();
-	}
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'full_name',
+        'email',
+        'password_hash',
+        'role_id',
+        'two_fa_enabled',
+        'two_factor_code',
+        'two_factor_expires_at',
+        'two_factor_delivery',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+    protected $hidden = [
+        'password_hash',
+        'remember_token',
+        'two_factor_code',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password_hash' => 'hashed',
+            'two_fa_enabled' => 'boolean',
+            'two_factor_expires_at' => 'datetime',
+        ];
+    }
+
+    /**
+     * Get the role that owns the user.
+     */
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
-?>
