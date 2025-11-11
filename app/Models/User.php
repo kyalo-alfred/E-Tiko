@@ -13,15 +13,23 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'user_id';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'full_name',
         'email',
-        'password',
-        'two_factor_enabled',
+        'password_hash',
+        'role_id',
+        'two_fa_enabled',
         'two_factor_code',
         'two_factor_expires_at',
         'two_factor_delivery',
@@ -33,7 +41,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        'password_hash',
         'remember_token',
         'two_factor_code',
     ];
@@ -47,9 +55,17 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'two_factor_enabled' => 'boolean',
+            'password_hash' => 'hashed',
+            'two_fa_enabled' => 'boolean',
             'two_factor_expires_at' => 'datetime',
         ];
+    }
+
+    /**
+     * Get the role that owns the user.
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id', 'role_id');
     }
 }

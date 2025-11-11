@@ -28,6 +28,27 @@ Route::middleware('guest')->group(function () {
     Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
         ->name('password.email');
 
+    // 2FA Password Reset Routes
+    Route::get('password-reset', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'create'])
+        ->name('password.reset.request');
+
+    Route::post('password-reset', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'store']);
+
+    Route::get('password-reset/verify', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'showVerification'])
+        ->name('password.reset.verify');
+
+    Route::post('password-reset/verify', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'verifyCode'])
+        ->name('password.reset.verify.post');
+
+    Route::post('password-reset/resend', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'resendCode'])
+        ->name('password.reset.resend');
+
+    Route::get('password-reset/form', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'showResetForm'])
+        ->name('password.reset.form');
+
+    Route::post('password-reset/form', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'resetPassword'])
+        ->name('password.reset.update');
+
     Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
         ->name('password.reset');
 

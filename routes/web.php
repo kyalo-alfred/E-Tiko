@@ -18,8 +18,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Reports
-    Route::get('/reports/users.csv', [ReportController::class, 'usersCsv'])->name('reports.users.csv');
+    // Reports Dashboard (Organizer only)
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index')->middleware('role:Organizer');
+    
+    // PDF Reports (Organizer only)
+    Route::get('/reports/users/pdf', [ReportController::class, 'usersPdf'])->name('reports.users.pdf')->middleware('role:Organizer');
+    Route::get('/reports/bookings/pdf', [ReportController::class, 'bookingsPdf'])->name('reports.bookings.pdf')->middleware('role:Organizer');
+    Route::get('/reports/revenue/pdf', [ReportController::class, 'revenuePdf'])->name('reports.revenue.pdf')->middleware('role:Organizer');
+    
+    // Excel Reports (Organizer only)
+    Route::get('/reports/users/excel', [ReportController::class, 'usersExcel'])->name('reports.users.excel')->middleware('role:Organizer');
+    Route::get('/reports/bookings/excel', [ReportController::class, 'bookingsExcel'])->name('reports.bookings.excel')->middleware('role:Organizer');
+    Route::get('/reports/revenue/excel', [ReportController::class, 'revenueExcel'])->name('reports.revenue.excel')->middleware('role:Organizer');
+    
+    // CSV Reports (Organizer only)
+    Route::get('/reports/users.csv', [ReportController::class, 'usersCsv'])->name('reports.users.csv')->middleware('role:Organizer');
 });
 
 require __DIR__.'/auth.php';

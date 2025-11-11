@@ -7,10 +7,34 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+/vendor
+
+# Build and distribution
 dist
 dist-ssr
-*.local
+/public/build
+/public/hot
+/public/storage
+
+# Environment and config
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.nova
+/.phpunit.cache
+/auth.json
+Homestead.json
+Homestead.yaml
+Thumbs.db
+
+# Storage
+/storage/*.key
+/storage/pail
 
 # Editor directories and files
 .vscode/*
@@ -22,26 +46,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Laravel specific
-.env
-.env.backup
-.env.production
-.phpactor.json
-.phpunit.result.cache
-/.fleet
-/.nova
-/.phpunit.cache
-/auth.json
-/public/build
-/public/hot
-/public/storage
-/storage/*.key
-/storage/pail
-/vendor
-Homestead.json
-Homestead.yaml
-Thumbs.db
 
 # Java/Maven specific
 HELP.md
