@@ -6,7 +6,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable
 {
@@ -58,7 +57,7 @@ class User extends Authenticatable
     /**
      * Get the role that owns the user.
      */
-    public function role(): BelongsTo
+    public function role()
     {
         return $this->belongsTo(Role::class);
     }

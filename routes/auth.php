@@ -37,7 +37,8 @@ Route::middleware('guest')->group(function () {
     Route::get('password-reset/verify', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'showVerification'])
         ->name('password.reset.verify');
 
-    Route::post('password-reset/verify', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'verifyCode']);
+    Route::post('password-reset/verify', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'verifyCode'])
+        ->name('password.reset.verify.post');
 
     Route::post('password-reset/resend', [App\Http\Controllers\Auth\TwoFactorPasswordResetController::class, 'resendCode'])
         ->name('password.reset.resend');
