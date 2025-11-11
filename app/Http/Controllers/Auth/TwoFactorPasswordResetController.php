@@ -49,13 +49,13 @@ class TwoFactorPasswordResetController extends Controller
         // Send 2FA code via email
         $mailer = App::make('smtp.phpmailer');
         $mailer->clearAllRecipients();
-        $mailer->addAddress($user->email, $user->name ?? null);
+        $mailer->addAddress($user->email, $user->full_name ?? null);
         $mailer->Subject = 'Password Reset Verification Code';
         $mailer->Body = 'Your password reset verification code is: ' . $code . '. This code expires in 15 minutes.';
         $mailer->send();
 
         // Store user ID in session for verification
-        $request->session()->put('password_reset:user:id', $user->id);
+        $request->session()->put('password_reset:user:id', $user->user_id);
 
         return redirect()->route('password.reset.verify')->with('status', 'A verification code has been sent to your email address.');
     }
